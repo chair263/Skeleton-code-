@@ -1,0 +1,91 @@
+Question 1:
+    the code uses a while not option 9 system
+    to fix this you have to delete this and run a new while loop that repeats and add 9 as a case
+
+    before :
+        displayMenu();
+                    choice = scanner.nextLine();
+                    switch (choice) {
+                        case "1":
+                            System.out.println(thisSimulation.getDetails());
+                            break;
+                        case "2":
+                            IntWrapper startRow = new IntWrapper(0), startColumn = new IntWrapper(0);
+                            IntWrapper endRow = new IntWrapper(0), endColumn = new IntWrapper(0);
+                            getCellReference(startRow, startColumn);
+                            getCellReference(endRow, endColumn);
+                            System.out.println(thisSimulation.getAreaDetails(startRow.value, startColumn.value, endRow.value, endColumn.value));
+                            break;
+                        case "3":
+                            IntWrapper row = new IntWrapper(0), column = new IntWrapper(0);
+                            getCellReference(row, column);
+                            System.out.println(thisSimulation.getCellDetails(row.value, column.value));
+                            break;
+                        case "4":
+                            thisSimulation.advanceStage(1);
+                            System.out.println("Simulation moved on one stage\n");
+                            break;
+                        case "5":
+                            System.out.print("Enter number of stages to advance by: ");
+                            int numberOfStages = Integer.parseInt(scanner.nextLine());
+                            thisSimulation.advanceStage(numberOfStages);
+                            System.out.println("Simulation moved on " + numberOfStages + " stages\n");
+                            break;
+                    }
+                } while (!choice.equals("9"));
+                String finish = scanner.nextLine();
+
+    After :
+        while(true){
+                    displayMenu();
+                    choice = scanner.nextLine();
+                        switch (choice) {
+                            case "1":
+                                System.out.println(thisSimulation.getDetails());
+                                break;
+                            case "2":
+                                IntWrapper startRow = new IntWrapper(0), startColumn = new IntWrapper(0);
+                                IntWrapper endRow = new IntWrapper(0), endColumn = new IntWrapper(0);
+                                getCellReference(startRow, startColumn);
+                                getCellReference(endRow, endColumn);
+                                System.out.println(thisSimulation.getAreaDetails(startRow.value, startColumn.value, endRow.value, endColumn.value));
+                                break;
+                            case "3":
+                                IntWrapper row = new IntWrapper(0), column = new IntWrapper(0);
+                                getCellReference(row, column);
+                                System.out.println(thisSimulation.getCellDetails(row.value, column.value));
+                                break;
+                            case "4":
+                                thisSimulation.advanceStage(1);
+                                System.out.println("Simulation moved on one stage\n");
+                                break;
+                            case "5":
+                                System.out.print("Enter number of stages to advance by: ");
+                                int numberOfStages = Integer.parseInt(scanner.nextLine());
+                                thisSimulation.advanceStage(numberOfStages);
+                                System.out.println("Simulation moved on " + numberOfStages + " stages\n");
+                                break;
+                            case "9":
+                                System.out.println("Are you sure you want to quit : yes/no");
+                                choice = scanner.nextLine();
+                                if(choice.equals("yes")){
+                                    System.exit(0);
+                                }
+                                break;
+                        }
+                    }
+
+    Notes:
+        You can see i have changed the while loop location to include the scanner and Displaymenu()
+        I have added the case("9") and within that added the extra condition within it. This simply just asks yes or no and exits with 0 if yes is inputted.
+        any other input will result in the game continuing
+
+Question 2:
+    question 2 asks for the ants if older than 14 to be killed in a horrific manner by removing them from the list.
+    to do this add a getter to the ant class for stages and then in the simulation add this loop within the ant loop
+    
+    if(a.getStages() >= 14){
+                            ants.remove(a);
+                        }
+Question 3:
+    In this question you are asked to reduce
