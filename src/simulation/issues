@@ -88,4 +88,9 @@ Question 2:
                             ants.remove(a);
                         }
 Question 3:
-    In this question you are asked to reduce
+    In this question you are asked to reduce the food in each cell by 10%;
+    To this question just add a simple if to the advance stage class where the same ant loop is being run
+
+    if(currentCell.getAmountOfFood() >= 0){
+                            currentCell.updateFoodInCell((int)((float)currentCell.getAmountOfFood()*(float)0.9f));
+                        }

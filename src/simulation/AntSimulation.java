@@ -393,6 +393,20 @@ public class AntSimulation {
                 for (Nest n : nests) {
                     n.advanceStage(nests, ants, pheromones);
                 }
+                int row = 0;
+                int column = 0;
+                for(int i = 0; i < grid.size(); i++){
+                    if(row == Math.sqrt(grid.size()) -1 ){
+                        row = 0;
+                        column++;
+                    }
+                    Cell currentCell = grid.get(getIndex(row+1, column+1));
+                    if(currentCell.getAmountOfFood() > 0){
+                        currentCell.updateFoodInCell(-(int)((float)currentCell.getAmountOfFood()*(float)0.9f));
+                        System.out.println(currentCell + "updated ");
+                    }
+
+                }
             }
         }
     }
